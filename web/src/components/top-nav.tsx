@@ -84,7 +84,7 @@ export function TopNav() {
             <span className="leading-none">webchat2api</span>
           </Link>
           <a
-            href="https://github.com/basketikun/webchat2api"
+            href="https://github.com/zqbxdev/webchat2api"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-1.5 py-1 text-sm text-stone-400 transition hover:text-stone-700"
