@@ -1,17 +1,21 @@
 <h1 align="center">webchat2api</h1>
-![alt text](image.png)
-<p align="center">webchat2api 是一个将 Web Chat 服务能力封装为标准 API 接口的代理服务项目，提供 FastAPI 后端、Next.js Web 管理端、OpenAI 风格 API、GPT/Grok 账号池管理、文生文/文生图试验页以及 Docker 自托管部署能力。</p>
+
+<p align="center">
+  <img src="web/public/webchat2api-logo.png" alt="webchat2api logo" width="180" />
+</p>
+
+<p align="center">webchat2api 是一个将 GPT/ChatGPT Web 与 Grok/xAI Web 能力封装为标准 API 接口的代理服务项目，提供 FastAPI 后端、Next.js Web 管理端、OpenAI 风格 API、GPT/Grok 账号池管理、文生文/文生图试验页以及 Docker 自托管部署能力。</p>
 
 > [!WARNING]
-> 免责声明：本项目涉及对 Web ChatGPT 网页端能力的逆向研究与封装，仅供个人学习、技术研究与非商业性技术交流使用。严禁用于商业倒卖、批量滥用、违反服务条款或违法违规场景。使用者需自行承担账号受限、封禁及其他法律与合规风险。
+> 免责声明：本项目涉及对 GPT/ChatGPT Web 与 Grok/xAI Web 能力的逆向研究与封装，仅供个人学习、技术研究与非商业性技术交流使用。严禁用于商业倒卖、批量滥用、违反服务条款或违法违规场景。使用者需自行承担账号受限、封禁及其他法律与合规风险。
 
 > [!IMPORTANT]
 > 默认登录密钥为 `admin`，仅适合本地测试。公网或生产环境部署后必须通过 `LOGIN_SECRET` 或 `WEBCHAT2API_AUTH_KEY` 修改为强随机密钥。
 
 ## 功能概览
 
-- OpenAI 风格 API：`/v1/models`、`/v1/chat/completions`、`/v1/images/generations`、`/v1/images/edits`、`/v1/responses`、`/v1/messages`
-- GPT/Grok 文本模型：`/v1/models` 优先通过 `provider=gpt` 账号动态拉取 GPT 模型，并合并静态 Grok 模型；`/v1/chat/completions` 按 `model` 自动分发到对应服务商账号
+- OpenAI 风格 API：将 GPT/ChatGPT Web 与 Grok/xAI Web 能力包装为 `/v1/models`、`/v1/chat/completions`、`/v1/images/generations`、`/v1/images/edits`、`/v1/responses`、`/v1/messages` 等接口
+- GPT/Grok 文本模型：`/v1/models` 优先通过 `provider=gpt` 账号动态拉取 GPT 模型，并合并静态 Grok 模型；`/v1/chat/completions` 按 `model` 自动分发到 GPT 或 Grok 服务商账号
 - Web 管理后台：账号池、用户 API Key、代理、日志、图片任务、图片文件和系统配置管理
 - 账号服务商：账号 `provider` 选择 `gpt` 或 `grok`，账号 `type` 仍表示套餐或订阅类型
 - 试验页：文生文聊天、文本模型批量可用性测试、文生图/图生图切换、图片队列和图片历史
@@ -225,3 +229,7 @@ cp config.example.json config.json
 ## 版本
 
 当前版本：`0.0.1`
+
+## 致谢
+
+感谢 https://github.com/chenyme/grok2api 和 https://github.com/basketikun/chatgpt2api。
