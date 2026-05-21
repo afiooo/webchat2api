@@ -1,14 +1,48 @@
+# VCS and editor metadata
 .git
 .gitignore
+.dockerignore
 .idea
-.venv
+.vscode
+*.swp
+*.swo
+.DS_Store
+
+# Python cache and local environments
 __pycache__
 *.pyc
 *.pyo
 *.pyd
+.venv
+venv
+env
+ENV
+.pytest_cache
+.mypy_cache
+.ruff_cache
 
+# Runtime data and local secrets
+.env
+.env.*
+!.env.example
+config.json
+!config.example.json
+data/
+*.db
+*.sqlite
+*.sqlite3
+git_cache/
+backup_state.json
+logs.jsonl
+
+# Generated web assets
 web/.next
 web/node_modules
+web/out
+web/next-env.d.ts
+web/tsconfig.tsbuildinfo
+web_dist/
 
+# Non-runtime repository files
 assets
 README.md

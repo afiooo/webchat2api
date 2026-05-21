@@ -43,6 +43,10 @@ web/tsconfig.tsbuildinfo
 web/next-env.d.ts
 web_dist/
 
+# Process records
+docs/research-record.md
+docs/task-tracking-log.md
+
 # Editors and local tooling
 .idea/
 .vscode/
