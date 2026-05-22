@@ -1,6 +1,6 @@
 # webchat2api 技术文档
 
-版本：0.0.1
+版本：0.0.2
 
 ## 1. 项目概述
 
@@ -222,14 +222,14 @@ webchat2api/
 cp config.example.json config.json
 ```
 
-`config.json` 是本地运行文件，可能包含代理、备份密钥或其他敏感配置，不应提交。`data/` 保存账号、用户密钥、日志、图片任务和图片文件等运行数据，必须保持未提交。
+`config.json` 是本地运行文件，可能包含代理、备份密钥或其他敏感配置，不应提交。后端会写入 `config.json` 保存 Web UI 设置，部署时如果把该文件只读挂载，管理后台的设置保存会失败。`data/` 保存账号、用户密钥、日志、图片任务和图片文件等运行数据，必须保持未提交。
 
 `config.json` 中的重要配置：
 
 | 配置项 | 默认值 | 说明 |
 | --- | --- | --- |
 | `auth-key` | `admin` | 管理端登录密钥；会被 `LOGIN_SECRET` 或 `WEBCHAT2API_AUTH_KEY` 覆盖。 |
-| `refresh_account_interval_minute` | `60` | 限流账号后台检查间隔。 |
+| `refresh_account_interval_minute` | `5` | 限流账号后台检查间隔。 |
 | `image_retention_days` | `15` | 本地图片保留天数。 |
 | `image_poll_timeout_secs` | `120` | 图片任务轮询超时时间。 |
 | `proxy` | 空 | 上游代理地址，会被 `PROXY_URL` 覆盖。 |
@@ -700,5 +700,5 @@ docker logs -f webchat2api
 docker restart webchat2api
 
 安全提醒：
-默认登录密钥 admin 仅建议本地测试使用，生产环境请立即修改 LOGIN_SECRET。config.json 和 data/ 是本地运行文件，禁止提交到代码仓库。
+默认登录密钥 admin 仅建议本地测试使用，生产环境请立即修改 LOGIN_SECRET。config.json 和 data/ 是本地运行文件，禁止提交到代码仓库；后端会写入 config.json 保存 Web UI 设置，只读挂载会导致设置保存失败。
 ```
