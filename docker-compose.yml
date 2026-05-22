@@ -10,7 +10,8 @@ services:
     volumes:
       - ./data:/app/data
       # Optional local override: cp config.example.json config.json, then uncomment.
-      # - ./config.json:/app/config.json:ro
+      # Do not bind config.json read-only if you need Web UI settings saves.
+      # - ./config.json:/app/config.json
     environment:
       LOGIN_SECRET: admin
       STORAGE_BACKEND: json
